@@ -1,15 +1,24 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 
 export default function App() {
+  const handlePress = () => console.log("Text Pressed");
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={() => console.log("text clicked")}>
-        Hello Big- A really really really long text that shouldnt be in here
+      <Text onPress={handlePress}>
+        Hello Biggy- A really really really long text that shouldnt be in here
         because it is wayyyy to long and life is long but this is longer
       </Text>
-      <StatusBar style="auto" />
+      <Image
+        blurRadius={2}
+        source={{
+          width: 200,
+          height: 300,
+          uri: "https://picsum.photos/200/300",
+        }}
+      />
     </SafeAreaView>
   );
 }
@@ -17,8 +26,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
-    // alignItems: "center",
-    // justifyContent: "center",
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
