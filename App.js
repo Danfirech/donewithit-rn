@@ -9,9 +9,14 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 export default function App() {
+  const { landscape } = useDeviceOrientation();
+
   console.log(Dimensions.get("screen"));
 
   return (
@@ -20,7 +25,7 @@ export default function App() {
         style={{
           backgroundColor: "dodgerblue",
           width: "100%",
-          height: "30%",
+          height: landscape ? "100%" : "30%",
         }}
       ></View>
     </SafeAreaView>
